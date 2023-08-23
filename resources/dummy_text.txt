@@ -1,0 +1,10 @@
+REM  *****  Dummy Text  *****
+
+'
+' dum dum
+'
+Sub Main
+
+	MsgBox "Test Message Box"
+
+End Sub
