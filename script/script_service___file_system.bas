@@ -8,7 +8,7 @@ Option Explicit
 
 Sub scriptservice_filesystem_readline
 
-	GlobalScope.BasicLibraries.loadLibrary("Tools") ' for String
+	GlobalScope.BasicLibraries.loadLibrary("Tools") ' for Tools
 	GlobalScope.BasicLibraries.LoadLibrary("ScriptForge") ' for FileSystem
 	
 	
@@ -65,7 +65,7 @@ End Sub
 
 Sub scriptservice_filesystem_open_close_readall
 
-	GlobalScope.BasicLibraries.loadLibrary("Tools") ' for String
+	GlobalScope.BasicLibraries.loadLibrary("Tools") ' for Tools
 	GlobalScope.BasicLibraries.LoadLibrary("ScriptForge") ' for FileSystem
 	
 	
