@@ -6,7 +6,7 @@ Option Explicit
 ' REF : https://help.libreoffice.org/latest/he/text/sbasic/shared/03/sf_filesystem.html
 '
 
-Sub scriptservice_filesystem_readline
+Sub script_forge___file_system___readline
 
 	GlobalScope.BasicLibraries.loadLibrary("Tools") ' for Tools
 	GlobalScope.BasicLibraries.LoadLibrary("ScriptForge") ' for FileSystem
@@ -63,7 +63,7 @@ End Sub
 
 
 
-Sub scriptservice_filesystem_open_close_readall
+Sub script_forge___file_system___open_close_readall
 
 	GlobalScope.BasicLibraries.loadLibrary("Tools") ' for Tools
 	GlobalScope.BasicLibraries.LoadLibrary("ScriptForge") ' for FileSystem
@@ -114,7 +114,7 @@ End Sub
 
 
 
-Sub scriptservice_filesystem_create_delete
+Sub script_forge___file_system___create_delete
 
 	GlobalScope.BasicLibraries.loadLibrary("Tools") ' for Tools
 	GlobalScope.BasicLibraries.LoadLibrary("ScriptForge") ' for FileSystem
