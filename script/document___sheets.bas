@@ -3,6 +3,7 @@
 Option Explicit
 
 '
+' REF : https://www.debugpoint.com/libreoffice-basic-macro-tutorial-index/
 ' REF : https://www.debugpoint.com/libreoffice-workbook-worksheet-and-cell-processing-using-macro/
 '
 
@@ -90,4 +91,52 @@ Sub PrintCell( cell as Object )
 			MsgBox cell.String
 	End Select
 
+End Sub
+
+
+
+Sub document___sheets___selected_cell
+
+	'
+	'
+	'
+    Dim selection_cell as Object
+    selection_cell = ThisComponent.getCurrentSelection()
+    
+    
+    '
+    ' NOTE : selection_cell.getCellAddress 는 문서에서 1개 이상의 셀이 선택되어 있을때 터진다.
+    '
+    Dim CAC as Object
+    CAC = ThisComponent.createInstance("com.sun.star.table.CellAddressConversion")
+    CAC.Address = selection_cell.getCellAddress
+    
+    
+    
+    MsgBox( CAC.UserInterfaceRepresentation & Chr( 10 ) & CAC.PersistentRepresentation )
+    
+End Sub
+
+
+
+Sub document___sheets___selected_range
+
+	'
+	'
+	'
+    Dim selection_cell as Object
+    selection_cell = ThisComponent.getCurrentSelection()
+    
+    
+    '
+    '
+    '
+    Dim CRAC as Object
+    CRAC = ThisComponent.createInstance("com.sun.star.table.CellRangeAddressConversion")
+    CRAC.Address = selection_cell.getRangeAddress
+    
+    
+    
+    MsgBox( CRAC.UserInterfaceRepresentation & Chr( 10 ) & CRAC.PersistentRepresentation )
+    
 End Sub
