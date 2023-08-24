@@ -42,7 +42,7 @@ End Sub
 
 
 	
-Sub E
+Sub document___sheets___getcellbyposition
 	
 	Dim document as Object
 	document = ThisComponent
@@ -50,22 +50,32 @@ Sub E
 	Dim sheets as Object
 	sheets = document.Sheets
 	
-	Dim sheet_count as Integer
-	sheet_count = sheets.Count
-	
 	Dim sheet as Object
-	sheet = sheets.getByName( "data_1" )
+	sheet = sheets.getByName( "data_1" )	
 	
+	
+	
+	
+	
+	'
+	'
+	'
 	Dim cell_0_0 as Object
 	cell_0_0 = sheet.getCellByPosition( 0, 0 )
 	
 	Dim cell_1_0 as Object
 	cell_1_0 = sheet.getCellByPosition( 1, 0 )
 	
-	MsgBox "Sheet Count : " & sheet_count
+	Dim cell_2_0 as Object
+	cell_2_0 = sheet.getCellByPosition( 2, 0 )
+	
+	
+	
+	
 	
 	PrintCell( cell_0_0 )
 	PrintCell( cell_1_0 )
+	PrintCell( cell_2_0 )
 
 End Sub
 
