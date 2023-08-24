@@ -157,3 +157,68 @@ Sub document___sheets___selected_range
     MsgBox( CRAC.UserInterfaceRepresentation & Chr( 10 ) & CRAC.PersistentRepresentation )
     
 End Sub
+
+
+
+'
+' REF : https://wiki.documentfoundation.org/Macros/Calc/ba024
+'
+Sub document___sheets___sort
+
+	'
+	'
+	'
+    Dim sheet as Object
+    sheet = ThisComponent.Sheets.getByName( "data_2" )
+    
+    
+    '
+    '
+    '
+    Dim range
+    range = sheet.getCellRangeByName("A2:C8")
+    
+    
+    '
+    '
+    '
+    Dim sort_field(1) as new com.sun.star.util.SortField
+    
+	sort_field(0).Field = 0
+    sort_field(0).SortAscending = TRUE
+    sort_field(0).FieldType = com.sun.star.util.SortFieldType.ALPHANUMERIC 'com.sun.star.util.SortFieldTypeNUMERIC
+    
+    sort_field(1).Field = 1
+    sort_field(1).SortAscending = TRUE
+    sort_field(1).FieldType = com.sun.star.util.SortFieldType.ALPHANUMERIC 'com.sun.star.util.SortFieldTypeNUMERIC
+    
+    
+    '
+    '
+    '
+    Dim sort_description(0) as new com.sun.star.beans.PropertyValue
+    
+    sort_description(0).Name = "SortFields"
+    sort_description(0).Value = sort_field()
+    
+    
+    range.Sort( sort_description() )
+
+    
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
