@@ -19,3 +19,19 @@ Sub document___title
 	MsgBox( document.Title )
 
 End Sub
+
+
+
+Sub document___getActiveSheet
+	
+	'
+	' ThisComponent 는 현재 문서를 가리킨다.
+	'
+	Dim document as Object
+	document = ThisComponent
+	
+	
+	
+	MsgBox( document.CurrentController.getActiveSheet().Name )
+
+End Sub
