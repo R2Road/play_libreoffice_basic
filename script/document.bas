@@ -31,7 +31,16 @@ Sub document___getActiveSheet
 	document = ThisComponent
 	
 	
+	'
+	' getActiveSheet
+	'
+	Dim sheet as Object
+	sheet = document.CurrentController.getActiveSheet()
 	
-	MsgBox( document.CurrentController.getActiveSheet().Name )
+	
+	'
+	' Sheet Size
+	'
+	MsgBox( sheet.Name & "  w : " & sheet.Columns.Count & "  h : " & sheet.Rows.Count )
 
 End Sub
