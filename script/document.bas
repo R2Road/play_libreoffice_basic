@@ -1,18 +1,70 @@
-﻿REM  *****  BASIC  *****
+﻿REM  *****  LibreOffice VBA  *****
 
 Option Explicit
 
 '
 ' REF : https://www.debugpoint.com/libreoffice-workbook-worksheet-and-cell-processing-using-macro/
 '
+
+Sub document___title
 	
-Sub main
+	'
+	' ThisComponent 는 현재 문서를 가리킨다.
+	'
+	Dim document as Object
+	document = ThisComponent
 	
-	Dim doc as Object
-	doc = ThisComponent
+	
+	
+	MsgBox( document.Title )
+
+End Sub
+
+
+
+Sub document___sheets___count_index_name
+	
+	Dim document as Object
+	document = ThisComponent
+	
+	
+	'
+	' Sheets
+	'
+	Dim sheets as Object
+	sheets = document.Sheets
+	
+	
+	'
+	' Sheet Count
+	'
+	Dim i, cnt as Integer : cnt = sheets.Count - 1
+	Dim s as String
+	
+	
+	'
+	' Index 로 Sheet 가져오기
+	'
+	s = s & document.Title & Chr( 10 ) & Chr( 10 )
+	For i = 0 to cnt
+		s = s & i & " : " & sheets( i ).Name & Chr( 10 )
+	Next i
+	
+	
+	
+	MsgBox( s )
+
+End Sub
+
+
+	
+Sub E
+	
+	Dim document as Object
+	document = ThisComponent
 	
 	Dim sheets as Object
-	sheets = doc.Sheets
+	sheets = document.Sheets
 	
 	Dim sheet_count as Integer
 	sheet_count = sheets.Count
