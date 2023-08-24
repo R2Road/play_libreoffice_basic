@@ -3,6 +3,7 @@
 Option Explicit
 
 '
+' REF : https://help.libreoffice.org/latest/en-US/text/sbasic/guide/read_write_values.html
 ' REF : https://www.debugpoint.com/libreoffice-basic-macro-tutorial-index/
 ' REF : https://www.debugpoint.com/libreoffice-workbook-worksheet-and-cell-processing-using-macro/
 '
@@ -91,6 +92,22 @@ Sub PrintCell( cell as Object )
 			MsgBox cell.String
 	End Select
 
+End Sub
+
+
+
+Sub document___sheets___selection
+
+	'
+	'
+	'
+    Dim selection_cell as Object
+    selection_cell = ThisComponent.getCurrentSelection()
+    
+    
+    
+    MsgBox( "w : " & selection_cell.Columns.Count & Chr( 10 ) & "h : " &selection_cell.Rows.Count )
+    
 End Sub
 
 
