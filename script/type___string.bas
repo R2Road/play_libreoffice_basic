@@ -54,7 +54,7 @@ Sub type_string___tab_linefeed
 	'
 	' 안돼
 	'
-	s = s & Chr( 10 ) & "\t \\t \n \\n"
+	s = s & Chr( 10 ) & "\t \\t \n \\n" & " ------ " & "Not Working"
 	
 	MsgBox( s )
 
