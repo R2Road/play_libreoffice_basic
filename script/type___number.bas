@@ -2,8 +2,19 @@
 
 Sub type___number___prefix
 
-	Dim bin as Byte : bin = &HFF
+	'
+	' Hexadecimal
+	'
+	Dim hex as Byte : hex = &HFF ' 255
 	
-	MsgBox( bin )
+	MsgBox( hex )
+	
+	
+	'
+	' Octal
+	'
+	Dim oct as Byte : oct = &O07 ' 7
+	
+	MsgBox( oct )
 
 End Sub
