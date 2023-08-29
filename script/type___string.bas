@@ -15,13 +15,18 @@ Sub type_string___declaration_1
 	MsgBox( s )
 
 End Sub
-
-
-
-
 Sub type_string___declaration_2
 
 	Dim s as String : s = "test string"
+	
+	MsgBox( s )
+
+End Sub
+Sub type_string___declaration_3
+
+	Dim s as String
+	
+	s = String( 10, "s" )
 	
 	MsgBox( s )
 
@@ -42,7 +47,6 @@ End Sub
 
 
 
-
 Sub type_string___tab_linefeed
 
 	Dim s as String : s = "test string"
@@ -55,6 +59,19 @@ Sub type_string___tab_linefeed
 	' 안돼
 	'
 	s = s & Chr( 10 ) & "\t \\t \n \\n" & " ------ " & "Not Working"
+	
+	MsgBox( s )
+
+End Sub
+
+
+
+
+Sub type_string___StrReverse
+
+	Dim s as String : s = "test string"
+	
+	StrReverse( s )
 	
 	MsgBox( s )
 
