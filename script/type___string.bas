@@ -67,13 +67,42 @@ End Sub
 
 
 
-Sub type_string___StrReverse
+Sub type_string___Left_Right_Mid
 
+	Dim view as String
+	
 	Dim s as String : s = "test string"
 	
-	StrReverse( s )
 	
-	MsgBox( s )
+	'
+	' Left : index 가 1부터 시작
+	'
+	view = view & "Left : " & Left( s, 0 )
+	view = view & Chr( 10 )
+	
+	
+	'
+	' Left : index 가 1부터 시작
+	'
+	view = view & "Left : " & Left( s, 1 )
+	view = view & Chr( 10 )
+	
+	
+	'
+	' Right
+	'
+	view = view & "Right : " & Right( s, 1 )
+	view = view & Chr( 10 )
+	
+	
+	'
+	' Mid : 지정한 위치를 기준으로 Index를 적용
+	'
+	view = view  & "Mid : "& Mid( s, 6, 1 )
+	view = view & Chr( 10 )
+	
+	
+	MsgBox( view )
 
 End Sub
 
