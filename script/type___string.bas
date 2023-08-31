@@ -1,5 +1,6 @@
 ﻿REM  *****  LibreOffice VBA  *****
 
+Option VBASupport 1 'for StrConv
 Option Explicit
 
 '
@@ -129,6 +130,39 @@ Sub type_string___Instr
 	' Instr : 지정한 문자열을 찾아 위치를 반환
 	'
 	MsgBox( Instr( 1, s, "st" ) )
+
+End Sub
+
+
+
+'REF : https://help.libreoffice.org/latest/en-US/text/sbasic/shared/strconv.html
+Sub type_string___StrConv
+
+	Dim s as String : s = "가"
+	
+	
+	'
+	' '기본 인코딩은 Unicode. "가" 는 0:172, "각" 은 1:172
+	'
+	Dim x0() As Byte
+	x0 = s
+	MsgBox( x0( 0 ) & " " & x0( 1 ) )
+	
+	
+	'
+	'  EUC-KR 로 변환된다. "가" 는 176:161
+	'
+	Dim x1() As Byte
+	x1 = StrConv( s, vbFromUnicode )
+	MsgBox( x1( 0 ) & " " & x1( 1 ) )
+	
+	
+	'
+	' Unicode를 Unicode로 인코딩 시도하면 실패한다.
+	'
+	Dim x2() As Byte
+	x2 = StrConv( s, vbUnicode)
+	'MsgBox( x2( 0 ) & " " & x2( 0 ) )
 
 End Sub
 
