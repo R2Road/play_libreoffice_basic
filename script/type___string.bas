@@ -106,3 +106,29 @@ Sub type_string___Left_Right_Mid
 
 End Sub
 
+
+
+Sub type_string___Len
+
+	Dim s as String : s = "test string"	
+	
+	'
+	' Len : 문자열의 길이 반환
+	'
+	MsgBox( Len( s ) )
+
+End Sub
+
+
+
+Sub type_string___Instr
+
+	Dim s as String : s = "test string"	
+	
+	'
+	' Instr : 지정한 문자열을 찾아 위치를 반환
+	'
+	MsgBox( Instr( 1, s, "st" ) )
+
+End Sub
+
