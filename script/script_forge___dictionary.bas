@@ -1,4 +1,4 @@
-﻿REM  *****  BASIC  *****
+﻿REM  *****  LibreOffice VBA  *****
 
 Option Explicit
 
@@ -6,9 +6,9 @@ Option Explicit
 ' REF : https://help.libreoffice.org/latest/ko/text/sbasic/shared/03/sf_dictionary.html
 '
 
-Sub main
+Sub script_forge___dictionary
 
-	GlobalScope.BasicLibraries.loadLibrary("ScriptForge")
+	GlobalScope.BasicLibraries.LoadLibrary("ScriptForge")
 	
 	Dim dic as Variant
 	
@@ -25,3 +25,4 @@ Sub main
 	Next i
 
 End Sub
+
