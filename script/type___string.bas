@@ -91,7 +91,7 @@ Sub type_string___Left_Right_Mid
 	'
 	' Right
 	'
-	view = view & "Right : " & Right( s, 1 )
+	view = view & "Right : " & Right( s, 2 )
 	view = view & Chr( 10 )
 	
 	
