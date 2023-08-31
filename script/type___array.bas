@@ -97,6 +97,18 @@ End Sub
 
 
 
+Sub type___array___size
+
+	'
+	' Size : UBound - LBound + 1
+	'
+	Dim a( 2 ) as Integer
+	MsgBox( "Size : " & ( UBound( a ) - LBound( a ) + 1 ) )
+
+End Sub
+
+
+
 Sub type___array___iteration_1
 
 	Dim a as Variant : a = Array( 100, 20, 3 )
