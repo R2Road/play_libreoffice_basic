@@ -52,14 +52,14 @@ Sub type_string___tab_linefeed
 
 	Dim s as String : s = "test string"
 	
-	s = s & Chr( 9 ) & Chr( 9 ) & "append 1"
+	s = s & Chr( 9 ) & Chr( 9 ) & " : tab : Chr( 9 )"
 	
-	s = s & Chr( 10 ) & "append 2"
+	s = s & Chr( 10 ) & " : linefeed : Chr( 10 )"
 	
 	'
 	' 안돼
 	'
-	s = s & Chr( 10 ) & "\t \\t \n \\n" & " ------ " & "Not Working"
+	s = s & Chr( 10 ) & Chr( 10 ) & "\t \\t \n \\n" & " ------ " & "Not Working"
 	
 	MsgBox( s )
 
@@ -136,7 +136,33 @@ End Sub
 
 
 'REF : https://help.libreoffice.org/latest/en-US/text/sbasic/shared/strconv.html
-Sub type_string___StrConv
+Sub type_string___StrConv_1
+
+	Dim s as String : s = "abc def"
+	
+	
+	'
+	'  vbUpperCase : 대문자 변환
+	'
+	s = StrConv( s, vbUpperCase )
+	MsgBox( s )
+	
+	
+	'
+	'  vbLowerCase : 소문자 변환
+	'
+	s = StrConv( s, vbLowerCase )
+	MsgBox( s )
+	
+	
+	'
+	'  vbProperCase : 단어의 첫 글자만 대문자 변환
+	'
+	s = StrConv( s, vbProperCase )
+	MsgBox( s )
+
+End Sub
+Sub type_string___StrConv_2
 
 	Dim s as String : s = "가"
 	
