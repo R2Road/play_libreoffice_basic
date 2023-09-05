@@ -21,6 +21,15 @@ Sub base___function
 	' 인자가 있는 함수
 	'
 	MsgBox( base___function___has_argument( 9800, 76 ) )
+	
+	'
+	' 배열을 넘겨주기
+	'
+	Dim a( 2 ) as Byte
+	a( 0 ) = 49
+	a( 1 ) = 49
+	a( 2 ) = 49
+	base___function___with_array( a )
 
 End Sub
 
@@ -45,5 +54,13 @@ End Function
 Function base___function___has_argument( a as Integer, b as Integer ) as Integer
 
 	base___function___has_argument = ( a + b )
+
+End Function
+
+
+
+Function base___function___with_array( a() as Byte )
+
+	MsgBox( a )
 
 End Function
