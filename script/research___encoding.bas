@@ -1,7 +1,31 @@
 ﻿REM  *****  LibreOffice VBA  *****
 
+Option VBASupport 1 'for Len, StrConv
 Option Explicit
 
+'
+'REF : https://leesumin.tistory.com/78
+'
+
+'
+' 한글 결합식
+'
+' (초성 인덱스 * 21 + 중성 인덱스) * 28 + 종성 인덱스 + 0xAC00
+' > 21은 중성의 총 수
+' > 28은 종성의 총 수
+' 
+' 즉 한글 결합식은 최소한의 숫자를 사용하면서 인덱스를 하나로 합치기 위해
+' 먼저 계산식에 오른 Index에 다음 Index 의 총 수를 곱해서 수를 밀어 올리면서 연산을 반복해서 완성 하는 것이다.
+' 
+' 초성 배열 19개 : "ㄱ", "ㄲ", "ㄴ", "ㄷ", "ㄸ", "ㄹ", "ㅁ", "ㅂ", "ㅃ", "ㅅ", "ㅆ", "ㅇ" , "ㅈ", "ㅉ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"
+' 중성 배열 21개 : "ㅏ", "ㅐ", "ㅑ", "ㅒ", "ㅓ", "ㅔ", "ㅕ", "ㅖ", "ㅗ", "ㅘ", "ㅙ", "ㅚ", "ㅛ", "ㅜ", "ㅝ", "ㅞ", "ㅟ", "ㅠ", "ㅡ", "ㅢ", "ㅣ"
+' 종성 배열 28개 : "", "ㄱ", "ㄲ", "ㄳ", "ㄴ", "ㄵ", "ㄶ", "ㄷ", "ㄹ", "ㄺ", "ㄻ", "ㄼ", "ㄽ", "ㄾ", "ㄿ", "ㅀ", "ㅁ", "ㅂ", "ㅄ", "ㅅ", "ㅆ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"
+'
+
+'
+' REF : https://velog.io/@limdumb/%EC%9C%A0%EB%8B%88%EC%BD%94%EB%93%9C-%ED%95%9C%EA%B8%80-%EB%B2%94%EC%9C%84
+' 유니코드 한글 범위
+'
 Sub research___multibyte
 
 	Dim document as Object
@@ -27,22 +51,33 @@ Sub research___multibyte
 	Dim s as String : s =  cell_0_1.String
 	MsgBox( s )
 	
-'	Dim i as Integer
-'	For i = 1 To 3
+	Dim b() as Byte
+	b = Mid( s, 1, 1 )
+	MsgBox( b )
 	
-		Dim c() as Byte : c = Mid( s, 1, 1 )
-
-		MsgBox( c )
-		MsgBox( c( 0 ) & " " & c( 1 ) )
-		
-		If ( c( 0 ) And &HF0 ) = &HE0 Then
-			MsgBox( "3Byte Word" )
-		ElseIf ( c( 0 ) And &HE0 ) = &HC0 Then
-			MsgBox( "2Byte Word" )
-		Else
-			MsgBox( "1Byte Word" )
-		EndIf
-		
-'	Next i
+	Dim result as Boolean : result = False
+	If IsMultiByte( b ) Then
+		result = IsKorean( b )
+	EndIf
+	MsgBox( result )
 
 End Sub
+
+
+
+Function IsMultiByte( b() as Byte )
+
+	IsMultiByte = ( ( UBound( b ) - LBound( b ) + 1 ) > 1 )
+
+End Function
+
+
+
+Function IsKorean( b() as Byte )
+
+	'
+	' 여기서 유니코드 범위 체크
+	'
+	IsKorean = False
+
+End Function
