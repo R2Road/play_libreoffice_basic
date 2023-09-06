@@ -24,7 +24,7 @@ Option Explicit
 
 '
 ' REF : https://velog.io/@limdumb/%EC%9C%A0%EB%8B%88%EC%BD%94%EB%93%9C-%ED%95%9C%EA%B8%80-%EB%B2%94%EC%9C%84
-' 유니코드 한글 범위
+' 유니코드 한글 범위 : AC00 ~ D7FF
 '
 Sub research___multibyte
 
@@ -75,9 +75,13 @@ End Function
 
 Function IsKorean( b() as Byte )
 
-	'
-	' 여기서 유니코드 범위 체크
-	'
 	IsKorean = False
+	
+	'
+	' 유니코드 범위 체크 : 한글 범위 AC00 ~ D7FF
+	'
+	If b( 1 ) >= &HAC And b( 1 ) < &HD8 Then
+		IsKorean = True
+	EndIf
 
 End Function
