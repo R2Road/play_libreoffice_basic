@@ -70,15 +70,11 @@ Function research___multibyte___check_multibyte
 	Dim s as String : s = "가a1"
 	Dim b() as Byte
 	
-	b = Mid( s, 1, 1 )
-	MsgBox( IsMultiByte( b ) )
-	
-	b = Mid( s, 2, 1 )	
-	MsgBox( IsMultiByte( b ) )
-	
-	Dim c() as Byte
-	c = Mid( s, 3, 1 )	
-	MsgBox( IsMultiByte( b ) )
+	Dim i as Integer
+	For i = 1 To 3
+		b = Mid( s, i, 1 )
+		MsgBox( IsMultiByte( b ) )
+	Next i
 	
 End Function
 Function IsMultiByte( b() as Byte )
@@ -97,6 +93,19 @@ End Function
 
 
 
+Function research___multibyte___check_korean
+
+	Dim s as String : s = "가a1"
+	Dim b() as Byte
+	
+	
+	Dim i as Integer
+	For i = 1 To 3
+		b = Mid( s, i, 1 )
+		MsgBox( IsKorean( b ) )
+	Next i
+	
+End Function
 Function IsKorean( b() as Byte )
 
 	IsKorean = False
