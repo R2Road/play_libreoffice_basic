@@ -65,11 +65,35 @@ End Sub
 
 
 
+Function research___multibyte___check_multibyte
+
+	Dim s as String : s = "가a1"
+	Dim b() as Byte
+	
+	b = Mid( s, 1, 1 )
+	MsgBox( IsMultiByte( b ) )
+	
+	b = Mid( s, 2, 1 )	
+	MsgBox( IsMultiByte( b ) )
+	
+	Dim c() as Byte
+	c = Mid( s, 3, 1 )	
+	MsgBox( IsMultiByte( b ) )
+	
+End Function
 Function IsMultiByte( b() as Byte )
 
-	IsMultiByte = ( ( UBound( b ) - LBound( b ) + 1 ) > 1 )
+	IsMultiByte = False
+	
+	'
+	' 유니코드 범위 체크 : English + Latin : https://en.wikipedia.org/wiki/List_of_Unicode_characters
+	'
+	If b( 1 ) <> 0 Then
+		IsMultiByte = True
+	EndIf
 
 End Function
+
 
 
 
@@ -78,7 +102,7 @@ Function IsKorean( b() as Byte )
 	IsKorean = False
 	
 	'
-	' 유니코드 범위 체크 : 한글 범위 AC00 ~ D7FF
+	' 유니코드 범위 체크 : 한글 : AC00 ~ D7FF
 	'
 	If b( 1 ) >= &HAC And b( 1 ) < &HD8 Then
 		IsKorean = True
