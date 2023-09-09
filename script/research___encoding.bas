@@ -79,14 +79,10 @@ Function research___multibyte___check_multibyte
 End Function
 Function IsMultiByte( b() as Byte )
 
-	IsMultiByte = False
-	
 	'
 	' 유니코드 범위 체크 : English + Latin : https://en.wikipedia.org/wiki/List_of_Unicode_characters
 	'
-	If b( 1 ) <> 0 Then
-		IsMultiByte = True
-	EndIf
+	IsMultiByte = ( b( 1 ) <> 0 )
 
 End Function
 
@@ -108,13 +104,9 @@ Function research___multibyte___check_korean
 End Function
 Function IsKorean( b() as Byte )
 
-	IsKorean = False
-	
 	'
 	' 유니코드 범위 체크 : 한글 : AC00 ~ D7FF
 	'
-	If b( 1 ) >= &HAC And b( 1 ) < &HD8 Then
-		IsKorean = True
-	EndIf
+	IsKorean = ( b( 1 ) >= &HAC And b( 1 ) < &HD8 )
 
 End Function
