@@ -110,3 +110,12 @@ Function IsKorean( b() as Byte )
 	IsKorean = ( b( 1 ) >= &HAC And b( 1 ) < &HD8 )
 
 End Function
+
+
+
+Function research___multibyte___extract_initial_consonant '초성 : initial_consonant
+End Function
+Function research___multibyte___extract_vowel '모음 : vowel
+End Function
+Function research___multibyte___extract_final_consonant '종성 : final_consonant
+End Function
