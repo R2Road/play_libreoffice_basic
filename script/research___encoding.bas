@@ -126,6 +126,25 @@ Function research___multibyte___extract_initial_consonant '초성 : initial_cons
 	
 End Function
 Function Extract_InitialConsonant( b() as Byte )
+
+	'
+	' byte array를 하나의 수로 만든다.
+	'
+	
+	Dim i as Long 'Integer : 16bit, Long : 32bit
+	
+	'
+	' b( 1 )
+	'
+	i = b( 1 )
+	i = i * 256 ' 256 : 2의 8승 : 왼쪽 shift 8
+	
+	'
+	' b( 0 )
+	'
+	i = i + b( 0 )
+	
+	Extract_InitialConsonant = i
 	
 End Function
 
