@@ -10,7 +10,7 @@ Option Explicit
 '
 ' 한글 결합식
 '
-' (초성 인덱스 * 21 + 중성 인덱스) * 28 + 종성 인덱스 + 0xAC00
+' (초성 인덱스 * 21 + 중성 인덱스) * 28 + 종성 인덱스 + 0xAC00( 44032 : 가 )
 ' > 21은 중성의 총 수
 ' > 28은 종성의 총 수
 ' 
@@ -115,13 +115,13 @@ End Function
 
 Function research___multibyte___extract_initial_consonant '초성 : initial_consonant
 
-	Dim s as String : s = "가a1"
+	Dim s as String : s = "가나민a1"
 	Dim b() as Byte
 	
 	Dim result as String
 	
 	Dim i as Integer
-	For i = 1 To 3
+	For i = 1 To 4
 		b = Mid( s, i, 1 )
 		
 		result = result & "+ " & b & Chr( 10 ) & "0 : " & b( 0 ) & Chr( 10 ) & "1 : " & b( 1 ) & Chr( 10 ) & Extract_InitialConsonant( b ) & Chr( 10 ) & Chr( 10 )
@@ -148,6 +148,28 @@ Function Extract_InitialConsonant( b() as Byte )
 	' b( 0 )
 	'
 	i = i + b( 0 )
+	
+	'
+	' 한글 결합식
+	'
+	' (초성 인덱스 * 21 + 중성 인덱스) * 28 + 종성 인덱스 + 0xAC00( 44032 : 가 )
+	'
+	
+	'
+	' 가 : 44032
+	' 각 항목의 인덱스가 모두 0 일때 '가' 이다.
+	'
+	i = i - 44032
+	
+	'
+	' 종성 떨구기
+	'
+	i = i / 28
+	
+	'
+	' 중성 떨구기
+	'
+	i = i / 21
 	
 	Extract_InitialConsonant = i
 	
