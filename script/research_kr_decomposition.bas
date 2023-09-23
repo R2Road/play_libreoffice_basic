@@ -25,21 +25,67 @@ Option Explicit
 '
 ' REF : https://velog.io/@limdumb/%EC%9C%A0%EB%8B%88%EC%BD%94%EB%93%9C-%ED%95%9C%EA%B8%80-%EB%B2%94%EC%9C%84
 ' 유니코드 한글 범위 : AC00 ~ D7FF
+'
+
+'
+' 분해 가능한 한글 범위 : AC00( 가 : 44032 ) ~ D7A3( 힣 : 55203 )
+' 
 
 
+Private list_initial_consonaant( 19 ) as String
+Private list_vowel( 21 ) as String
+Private list_final_consonaant( 28 ) as String
+
+Function InitKoreanPartsList
+	
+	If list_initial_consonaant( 0 ) = "" Then
+		
+		list_initial_consonaant = Array( "ㄱ", "ㄲ", "ㄴ", "ㄷ", "ㄸ", "ㄹ", "ㅁ", "ㅂ", "ㅃ", "ㅅ", "ㅆ", "ㅇ" , "ㅈ", "ㅉ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ" )
+		list_vowel = Array( "ㅏ", "ㅐ", "ㅑ", "ㅒ", "ㅓ", "ㅔ", "ㅕ", "ㅖ", "ㅗ", "ㅘ", "ㅙ", "ㅚ", "ㅛ", "ㅜ", "ㅝ", "ㅞ", "ㅟ", "ㅠ", "ㅡ", "ㅢ", "ㅣ" )
+		list_final_consonaant = Array( "", "ㄱ", "ㄲ", "ㄳ", "ㄴ", "ㄵ", "ㄶ", "ㄷ", "ㄹ", "ㄺ", "ㄻ", "ㄼ", "ㄽ", "ㄾ", "ㄿ", "ㅀ", "ㅁ", "ㅂ", "ㅄ", "ㅅ", "ㅆ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ" )
+		
+	EndIf
+	
+End Function
+
+
+
+Function IsDecompositionEnable( code as Long )
+
+	IsDecompositionEnable = ( code >= 44032 And code <= 55203 )
+
+End Function
 
 Function research___multibyte___extract_initial_consonant '초성 : initial_consonant
 
-	Dim s as String : s = "가나민a1"
+	InitKoreanPartsList
+
+	Dim s as String : s = "가나민ㄷㅏ"
 	Dim b() as Byte
+	Dim code as Long
 	
 	Dim result as String
 	
 	Dim i as Integer
-	For i = 1 To 4
+	For i = 1 To 5
 		b = Mid( s, i, 1 )
 		
-		result = result & "+ " & b & Chr( 10 ) & "0 : " & b( 0 ) & Chr( 10 ) & "1 : " & b( 1 ) & Chr( 10 ) & Extract_InitialConsonant( b ) & Chr( 10 ) & Chr( 10 )
+		'
+		' b( 1 )
+		'
+		code = b( 1 )
+		code = code * 256 ' 256 : 2의 8승 : 왼쪽 shift 8
+		
+		'
+		' b( 0 )
+		'
+		code = code + b( 0 )
+		
+		If IsDecompositionEnable( code ) Then
+			result = result & "+ " & b & Chr( 10 ) & "0 : " & b( 0 ) & Chr( 10 ) & "1 : " & b( 1 ) & Chr( 10 ) & list_initial_consonaant( Extract_InitialConsonant( b ) ) & Chr( 10 ) & Chr( 10 )
+		Else
+			result = result & "+ " & b & Chr( 10 ) & "분해 불가" & Chr( 10 ) & Chr( 10 )
+		End If
 	Next i
 	
 	MsgBox( result )
@@ -94,13 +140,13 @@ End Function
 
 Function research___multibyte___extract_vowel '모음 : vowel
 
-	Dim s as String : s = "가a1"
+	Dim s as String : s = "가나민ㄷㅏ"
 	Dim b() as Byte
 	
 	Dim result as String
 	
 	Dim i as Integer
-	For i = 1 To 3
+	For i = 1 To 4
 		b = Mid( s, i, 1 )
 		result = result & "+ " & b & Chr( 10 ) & "0 : " & b( 0 ) & Chr( 10 ) & "1 : " & b( 1 ) & Chr( 10 ) & Extract_Vowel( b ) & Chr( 10 ) & Chr( 10 )
 	Next i
@@ -116,13 +162,13 @@ End Function
 
 Function research___multibyte___extract_final_consonant '종성 : final_consonant
 
-	Dim s as String : s = "가a1"
+	Dim s as String : s = "가나민ㄷㅏ"
 	Dim b() as Byte
 	
 	Dim result as String
 	
 	Dim i as Integer
-	For i = 1 To 3
+	For i = 1 To 4
 		b = Mid( s, i, 1 )
 		result = result & "+ " & b & Chr( 10 ) & "0 : " & b( 0 ) & Chr( 10 ) & "1 : " & b( 1 ) & Chr( 10 ) & Extract_FinalConsonant( b ) & Chr( 10 ) & Chr( 10 )
 	Next i
