@@ -118,11 +118,16 @@ Function research___multibyte___extract_initial_consonant '초성 : initial_cons
 	Dim s as String : s = "가a1"
 	Dim b() as Byte
 	
+	Dim result as String
+	
 	Dim i as Integer
 	For i = 1 To 3
 		b = Mid( s, i, 1 )
-		MsgBox( "0 : " & b( 0 ) & Chr( 10 ) & "1 : " & b( 1 ) & Chr( 10 ) & Extract_InitialConsonant( b ) )
+		
+		result = result & "+ " & b & Chr( 10 ) & "0 : " & b( 0 ) & Chr( 10 ) & "1 : " & b( 1 ) & Chr( 10 ) & Extract_InitialConsonant( b ) & Chr( 10 ) & Chr( 10 )
 	Next i
+	
+	MsgBox( result )
 	
 End Function
 Function Extract_InitialConsonant( b() as Byte )
@@ -155,11 +160,15 @@ Function research___multibyte___extract_vowel '모음 : vowel
 	Dim s as String : s = "가a1"
 	Dim b() as Byte
 	
+	Dim result as String
+	
 	Dim i as Integer
 	For i = 1 To 3
 		b = Mid( s, i, 1 )
-		MsgBox( "0 : " & b( 0 ) & Chr( 10 ) & "1 : " & b( 1 ) & Chr( 10 ) & Extract_Vowel( b ) )
+		result = result & "+ " & b & Chr( 10 ) & "0 : " & b( 0 ) & Chr( 10 ) & "1 : " & b( 1 ) & Chr( 10 ) & Extract_Vowel( b ) & Chr( 10 ) & Chr( 10 )
 	Next i
+	
+	MsgBox( result )
 	
 End Function
 Function Extract_Vowel( b() as Byte )
@@ -173,11 +182,15 @@ Function research___multibyte___extract_final_consonant '종성 : final_consonan
 	Dim s as String : s = "가a1"
 	Dim b() as Byte
 	
+	Dim result as String
+	
 	Dim i as Integer
 	For i = 1 To 3
 		b = Mid( s, i, 1 )
-		MsgBox( "0 : " & b( 0 ) & Chr( 10 ) & "1 : " & b( 1 ) & Chr( 10 ) & Extract_FinalConsonant( b ) )
+		result = result & "+ " & b & Chr( 10 ) & "0 : " & b( 0 ) & Chr( 10 ) & "1 : " & b( 1 ) & Chr( 10 ) & Extract_FinalConsonant( b ) & Chr( 10 ) & Chr( 10 )
 	Next i
+	
+	MsgBox( result )
 	
 End Function
 Function Extract_FinalConsonant( b() as Byte )
