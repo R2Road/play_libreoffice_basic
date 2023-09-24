@@ -50,39 +50,58 @@ End Function
 
 
 
+Function ConvertBytes2Code( b() as Byte )
+
+	'
+	' byte array를 하나의 수로 만든다.
+	'
+	
+	Dim code as Long 'Integer : 16bit, Long : 32bit
+	
+	'
+	' b( 1 )
+	'
+	code = b( 1 )
+	code = code * 256 ' 256 : 2의 8승 : 왼쪽 shift 8
+	
+	'
+	' b( 0 )
+	'
+	code = code + b( 0 )
+	
+	ConvertBytes2Code = code
+		
+End Function
+
 Function IsDecompositionEnable( code as Long )
 
 	IsDecompositionEnable = ( code >= 44032 And code <= 55203 )
 
 End Function
 
+
+
 Function research___multibyte___extract_initial_consonant '초성 : initial_consonant
 
 	InitKoreanPartsList
 
-	Dim s as String : s = "가나민ㄷㅏ"
+	Dim s as String : s = "가네민ㄷㅏ"
+	
+	Dim slen as Integer : slen = Len( s )
+	
 	Dim b() as Byte
 	Dim code as Long
 	
 	Dim result as String
 	
 	Dim i as Integer
-	For i = 1 To 5
+	For i = 1 To slen
 		b = Mid( s, i, 1 )
 		
-		'
-		' b( 1 )
-		'
-		code = b( 1 )
-		code = code * 256 ' 256 : 2의 8승 : 왼쪽 shift 8
-		
-		'
-		' b( 0 )
-		'
-		code = code + b( 0 )
+		code = ConvertBytes2Code( b )
 		
 		If IsDecompositionEnable( code ) Then
-			result = result & "+ " & b & Chr( 10 ) & "0 : " & b( 0 ) & Chr( 10 ) & "1 : " & b( 1 ) & Chr( 10 ) & list_initial_consonaant( Extract_InitialConsonant( b ) ) & Chr( 10 ) & Chr( 10 )
+			result = result & "+ " & b & Chr( 10 ) & "0 : " & b( 0 ) & Chr( 10 ) & "1 : " & b( 1 ) & Chr( 10 ) & list_initial_consonaant( Extract_InitialConsonant( code ) ) & Chr( 10 ) & Chr( 10 )
 		Else
 			result = result & "+ " & b & Chr( 10 ) & "분해 불가" & Chr( 10 ) & Chr( 10 )
 		End If
@@ -91,24 +110,7 @@ Function research___multibyte___extract_initial_consonant '초성 : initial_cons
 	MsgBox( result )
 	
 End Function
-Function Extract_InitialConsonant( b() as Byte )
-
-	'
-	' byte array를 하나의 수로 만든다.
-	'
-	
-	Dim i as Long 'Integer : 16bit, Long : 32bit
-	
-	'
-	' b( 1 )
-	'
-	i = b( 1 )
-	i = i * 256 ' 256 : 2의 8승 : 왼쪽 shift 8
-	
-	'
-	' b( 0 )
-	'
-	i = i + b( 0 )
+Function Extract_InitialConsonant( code as Long )
 	
 	'
 	' 한글 결합식
@@ -120,19 +122,19 @@ Function Extract_InitialConsonant( b() as Byte )
 	' 가 : 44032
 	' 각 항목의 인덱스가 모두 0 일때 '가' 이다.
 	'
-	i = i - 44032
+	code = Int( code - 44032 ) '은근슬쩍 반올림을 하고 있어서 Int 를 사용 해서 정수부만 쓰도록 제한한다.
 	
 	'
 	' 종성 떨구기
 	'
-	i = i / 28
+	code = Int( code / 28 )
 	
 	'
 	' 중성 떨구기
 	'
-	i = i / 21
+	code = Int( code / 21 )
 	
-	Extract_InitialConsonant = i
+	Extract_InitialConsonant = code
 	
 End Function
 
