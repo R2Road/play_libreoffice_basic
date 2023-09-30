@@ -26,50 +26,6 @@ Option Explicit
 ' REF : https://velog.io/@limdumb/%EC%9C%A0%EB%8B%88%EC%BD%94%EB%93%9C-%ED%95%9C%EA%B8%80-%EB%B2%94%EC%9C%84
 ' 유니코드 한글 범위 : AC00 ~ D7FF
 '
-Sub research___multibyte
-
-	Dim document as Object
-	document = ThisComponent
-	
-	Dim sheets as Object
-	sheets = document.Sheets
-	
-	Dim sheet as Object
-	sheet = sheets.getByName( "data_2" )	
-	
-	
-	
-	
-	
-	'
-	'
-	'
-	Dim cell_0_1 as Object
-	cell_0_1 = sheet.getCellByPosition( 0, 1 )
-	
-	
-	Dim s as String : s =  cell_0_1.String
-	MsgBox( s )
-	Dim slen as Integer : slen = Len( s )
-	
-	Dim b() as Byte
-	
-	Dim result as String
-	
-	Dim i as Integer
-	For i = 1 To slen
-	
-		b = Mid( s, i, 1 )
-		
-		result = result & b & Chr( 9 ) & Chr( 9 ) & "MultiByte = " & IsMultiByte( b ) & Chr( 9 ) & Chr( 9 ) & "Korean = " & IsKorean( b ) & Chr( 10 )
-		
-	Next i
-	
-	MsgBox( result )
-
-End Sub
-
-
 
 Function research___multibyte___check_multibyte
 
@@ -133,3 +89,49 @@ Function IsKorean( b() as Byte )
 	IsKorean = ( b( 1 ) >= &HAC And b( 1 ) < &HD8 )
 
 End Function
+
+
+
+
+Sub research___multibyte
+
+	Dim document as Object
+	document = ThisComponent
+	
+	Dim sheets as Object
+	sheets = document.Sheets
+	
+	Dim sheet as Object
+	sheet = sheets.getByName( "data_2" )	
+	
+	
+	
+	
+	
+	'
+	'
+	'
+	Dim cell_0_1 as Object
+	cell_0_1 = sheet.getCellByPosition( 0, 1 )
+	
+	
+	Dim s as String : s =  cell_0_1.String
+	MsgBox( s )
+	Dim slen as Integer : slen = Len( s )
+	
+	Dim b() as Byte
+	
+	Dim result as String
+	
+	Dim i as Integer
+	For i = 1 To slen
+	
+		b = Mid( s, i, 1 )
+		
+		result = result & b & Chr( 9 ) & Chr( 9 ) & "MultiByte = " & IsMultiByte( b ) & Chr( 9 ) & Chr( 9 ) & "Korean = " & IsKorean( b ) & Chr( 10 )
+		
+	Next i
+	
+	MsgBox( result )
+
+End Sub
