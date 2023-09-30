@@ -95,6 +95,9 @@ End Function
 
 Sub research___multibyte
 
+	'
+	' spread sheet 의 cell 을 하나 가져온다.
+	'
 	Dim document as Object
 	document = ThisComponent
 	
@@ -102,19 +105,14 @@ Sub research___multibyte
 	sheets = document.Sheets
 	
 	Dim sheet as Object
-	sheet = sheets.getByName( "data_2" )	
+	sheet = sheets.getByName( "data_2" )
 	
-	
-	
-	
-	
-	'
-	'
-	'
 	Dim cell_0_1 as Object
-	cell_0_1 = sheet.getCellByPosition( 0, 1 )
+	cell_0_1 = sheet.getCellByPosition( 0, 1 )	
 	
-	
+	'
+	'
+	'
 	Dim s as String : s =  cell_0_1.String
 	MsgBox( s )
 	Dim slen as Integer : slen = Len( s )
