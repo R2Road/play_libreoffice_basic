@@ -75,6 +75,9 @@ End Function
 
 Function IsDecompositionEnable( code as Long )
 
+	'
+	' 분해 가능한 한글 범위 : AC00( 가 : 44032 ) ~ D7A3( 힣 : 55203 )
+	'
 	IsDecompositionEnable = ( code >= 44032 And code <= 55203 )
 
 End Function
