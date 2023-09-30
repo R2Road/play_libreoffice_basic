@@ -67,7 +67,7 @@ End Sub
 
 Function research___multibyte___check_multibyte
 
-	Dim s as String : s = "가a1"
+	Dim s as String : s = "가a1ㄴ다ㅏ"
 	Dim slen as Integer : slen = Len( s )
 	
 	Dim b() as Byte
@@ -100,15 +100,23 @@ End Function
 
 Function research___multibyte___check_korean
 
-	Dim s as String : s = "가a1"
+	Dim s as String : s = "가a1ㄴ다ㅏ"
+	Dim slen as Integer : slen = Len( s )
+	
 	Dim b() as Byte
 	
+	Dim result as String
 	
 	Dim i as Integer
-	For i = 1 To 3
+	For i = 1 To slen
+	
 		b = Mid( s, i, 1 )
-		MsgBox( IsKorean( b ) )
+		
+		result = result & b & " : " & IsKorean( b ) & Chr( 10 )
+		
 	Next i
+	
+	MsgBox( result )
 	
 End Function
 Function IsKorean( b() as Byte )
