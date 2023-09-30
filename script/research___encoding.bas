@@ -50,15 +50,21 @@ Sub research___multibyte
 	
 	Dim s as String : s =  cell_0_1.String
 	MsgBox( s )
+	Dim slen as Integer : slen = Len( s )
 	
 	Dim b() as Byte
-	b = Mid( s, 1, 1 )
-	MsgBox( b )
 	
-	Dim result as Boolean : result = False
-	If IsMultiByte( b ) Then
-		result = IsKorean( b )
-	EndIf
+	Dim result as String
+	
+	Dim i as Integer
+	For i = 1 To slen
+	
+		b = Mid( s, i, 1 )
+		
+		result = result & b & Chr( 9 ) & Chr( 9 ) & "MultiByte = " & IsMultiByte( b ) & Chr( 9 ) & Chr( 9 ) & "Korean = " & IsKorean( b ) & Chr( 10 )
+		
+	Next i
+	
 	MsgBox( result )
 
 End Sub
