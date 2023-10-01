@@ -115,6 +115,8 @@ Function research___multibyte___extract_initial_consonant '초성 : initial_cons
 End Function
 Function Extract_InitialConsonant( code as Long )
 	
+	Dim result as Long 'Integer : 16bit, Long : 32bit
+	
 	'
 	' 한글 결합식
 	'
@@ -125,19 +127,19 @@ Function Extract_InitialConsonant( code as Long )
 	' 가 : 44032
 	' 각 항목의 인덱스가 모두 0 일때 '가' 이다.
 	'
-	code = Int( code - 44032 ) '은근슬쩍 반올림을 하고 있어서 Int 를 사용 해서 정수부만 쓰도록 제한한다.
+	result = Int( code - 44032 ) '은근슬쩍 반올림을 하고 있어서 Int 를 사용 해서 정수부만 쓰도록 제한한다.
 	
 	'
 	' 종성 떨구기
 	'
-	code = Int( code / 28 )
+	result = Int( result / 28 )
 	
 	'
 	' 중성 떨구기
 	'
-	code = Int( code / 21 )
+	result = Int( result / 21 )
 	
-	Extract_InitialConsonant = code
+	Extract_InitialConsonant = result
 	
 End Function
 
