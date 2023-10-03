@@ -192,3 +192,30 @@ Sub type_string___StrConv_2
 
 End Sub
 
+
+
+Sub type_string___UCase_LCase
+
+	Dim s as String : s = "aBcDeF1"
+	
+	Dim result as String	
+	
+	
+	result = "Original : " & s & Chr( 10 )
+	
+	
+	'
+	' UCase
+	'
+	result = result & Chr( 10 ) & "Ucase : " & UCase( s )
+	
+	
+	'
+	' LCase
+	'
+	result = result & Chr( 10 ) & "Lcase : " & LCase( s )
+	
+	
+	MsgBox( result )
+
+End Sub
