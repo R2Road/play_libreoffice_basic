@@ -22,9 +22,18 @@ Sub base___class_module_test_01___class_module_generate_release
 	
 	
 	'
-	' 프로퍼티에 접근
+	' 프로퍼티에 접근 : Get
 	'
-	Print "Property : " & c.PI & " " & c.PL
+	Print "Property : Get : " & c.PI & " " & c.PL
+	
+	
+	
+	'
+	' 프로퍼티에 접근 : Let
+	'
+	c.PI = 1000
+	c.PL = 2000
+	Print "Property : Let : " & c.PI & " " & c.PL
 	
 	
 	

@@ -14,7 +14,8 @@ Public l as Long
 '
 Private Sub Class_Initialize()
 
-	i = 10
+	i = 1
+	l = 2
 
     Print "Class Module : Initialize"
 End Sub
@@ -29,7 +30,7 @@ End Sub ' Destructor
 
 
 '
-' 프로퍼티
+' 프로퍼티 : Get
 '
 Public Property Get PI() as Integer
 
@@ -39,6 +40,23 @@ End Property
 
 Public Property Get PL() as Integer
 
-	PL = l + 10
+	PL = l + 20
+
+End Property
+
+
+
+'
+' 프로퍼티 : Let
+'
+Public Property Let PI( arg as Integer )
+
+	i = arg + 10
+
+End Property
+
+Public Property Let PL( arg as Integer )
+
+	l = arg + 20
 
 End Property
