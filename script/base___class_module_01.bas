@@ -1,5 +1,8 @@
 ﻿REM  *****  BASIC  *****
 
+'
+' Class Module 을 사용하려면 "Option Compatible", "Option ClassModule" 이 필요하다
+'
 Option Compatible
 Option ClassModule
 
