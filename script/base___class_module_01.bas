@@ -6,11 +6,15 @@
 Option Compatible
 Option ClassModule
 
+
+
 '
 ' 멤버 변수
 '
 Private i as Integer
 Public l as Long
+
+
 
 '
 ' 생성자
@@ -23,6 +27,8 @@ Private Sub Class_Initialize()
     Print "Class Module : Initialize"
 End Sub
 
+
+
 '
 ' 소멸자
 '
@@ -33,7 +39,7 @@ End Sub ' Destructor
 
 
 '
-' 프로퍼티 : Get
+' 프로퍼티 : Get : Getter
 '
 Public Property Get PI() as Integer
 
@@ -50,7 +56,7 @@ End Property
 
 
 '
-' 프로퍼티 : Let
+' 프로퍼티 : Let : Setter
 '
 Public Property Let PI( arg as Integer )
 
