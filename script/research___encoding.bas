@@ -5,6 +5,7 @@ Option Explicit
 
 '
 'REF : https://leesumin.tistory.com/78
+'REF : 유니코드 범위에 대한 이해 : https://jinios.github.io/study/2018/06/23/unicode_background_korean/
 '
 
 '
