@@ -203,6 +203,21 @@ Sub document___sheets___sort
     
     
     range.Sort( sort_description() )
+    
+    
+    '
+    '
+    '
+    MsgBox( "Sorting : Pivot Field 0 and 1" )
+    
+    
+    '
+	' Rollback
+	'
+	sort_field(0).Field = 2
+	sort_field(1).Field = 2
+	sort_description(0).Value = sort_field()
+	range.Sort( sort_description() )
 
     
 End Sub
