@@ -105,7 +105,7 @@ Sub research___multibyte
 	sheets = document.Sheets
 	
 	Dim sheet as Object
-	sheet = sheets.getByName( "data_2" )
+	sheet = sheets.getByName( "multibyte_check" )
 	
 	Dim cell_0_1 as Object
 	cell_0_1 = sheet.getCellByPosition( 0, 1 )	
