@@ -169,7 +169,7 @@ Sub document___sheets___sort
 	'
 	'
     Dim sheet as Object
-    sheet = ThisComponent.Sheets.getByName( "data_2" )
+    sheet = ThisComponent.Sheets.getByName( "sorting_list" )
     
     
     '
