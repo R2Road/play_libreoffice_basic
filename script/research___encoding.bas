@@ -60,6 +60,47 @@ End Function
 
 
 
+Function research___multibyte___check_number
+
+	Dim s as String : s = "0가a1ㄴ다7ㅏ9"
+	Dim slen as Integer : slen = Len( s )
+	
+	Dim b() as Byte
+	
+	Dim result as String
+	
+	Dim i as Integer
+	For i = 1 To slen
+	
+		b = Mid( s, i, 1 )
+		
+		result = result & b & Chr( 9 ) & Chr( 9 ) & IsNumber( b ) & Chr( 10 )
+		
+	Next i
+	
+	MsgBox( result )
+	
+End Function
+Function IsNumber( b() as Byte )
+
+
+	If b( 1 ) <> 0 Then
+		IsNumber = False
+	Else
+		
+		'
+		' 유니코드 범위 체크 : 숫자 : 0030 ~ 0039
+		'
+		IsNumber = ( b( 0 ) >= &H30 And b( 0 ) <= &H39 )
+		
+	End If
+
+
+End Function
+
+
+
+
 Function research___multibyte___check_korean
 
 	Dim s as String : s = "가a1ㄴ다ㅏ"
