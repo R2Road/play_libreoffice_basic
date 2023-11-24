@@ -85,6 +85,9 @@ End Function
 Function IsNumber( b() as Byte )
 
 
+	'
+	' Multibyte Check
+	'
 	If b( 1 ) <> 0 Then
 		IsNumber = False
 	Else
