@@ -105,6 +105,52 @@ End Function
 
 
 
+Function research___multibyte___check_english
+
+	Dim s as String : s = "0가a1zㄴb다7AㅏZ9"
+	Dim slen as Integer : slen = Len( s )
+	
+	Dim b() as Byte
+	
+	Dim result as String
+	
+	Dim i as Integer
+	For i = 1 To slen
+	
+		b = Mid( s, i, 1 )
+		
+		result = result & b & Chr( 9 ) & Chr( 9 ) & IsEnglish( b ) & Chr( 10 )
+		
+	Next i
+	
+	MsgBox( result )
+	
+End Function
+Function IsEnglish( b() as Byte )
+
+
+	'
+	' Multibyte Check
+	'
+	If b( 1 ) <> 0 Then
+		IsEnglish = False
+	Else
+		
+		'
+		' 유니코드 범위 체크
+		' 대문자 : 0041 ~ 005A
+		' 소문자 : 0061 ~ 007A
+		'
+		IsEnglish = ( b( 0 ) >= &H41 And b( 0 ) <= &H5A ) Or ( b( 0 ) >= &H61 And b( 0 ) <= &H7A )
+		
+	End If
+
+
+End Function
+
+
+
+
 Function research___multibyte___check_korean
 
 	Dim s as String : s = "가a1ㄴ다ㅏ"
