@@ -83,6 +83,66 @@ Sub document___sheets___row_and_column
 End Sub
 
 
+
+Sub document___sheets___active_row_and_column
+	
+	'
+	' ThisComponent 는 현재 문서를 가리킨다.
+	'
+	Dim document as Object
+	document = ThisComponent
+	
+	
+	'
+	' Get Sheet
+	'
+	Dim sheets as Object
+	sheets = document.Sheets
+	
+	Dim sheet as Object
+	sheet = sheets.getByName( "row_and_column" )
+	
+	
+	
+	'
+	' Active X
+	'
+	Dim cur_x as Long
+	Dim end_x as Long : end_x = sheet.Columns.Count
+	
+	For cur_x = 0 to end_x
+		If sheet.getCellByPosition( cur_x, 0 ).String = "" Then
+			cur_x = cur_x - 1
+			Exit For
+		EndIf
+	Next cur_x
+	
+	
+	
+	'
+	' Active Y
+	'
+	Dim cur_y as Long
+	Dim end_y as Long : end_y = sheet.Rows.Count
+	
+	For cur_y = 0 to end_y
+		If sheet.getCellByPosition( 0, cur_y ).String = "" Then
+			cur_y = cur_y - 1
+			Exit For
+		EndIf
+	Next cur_y
+	
+		
+	MsgBox( _
+						"Data : " & end_x & " : " & end_y _
+		& Chr( 10 ) _
+		& Chr( 10 ) & 	"Active X : " & "0" & " ~ " & cur_x _ 
+		& Chr( 10 ) & 	"Active Y : " & "0" & " ~ " & cur_y _
+	)
+
+End Sub
+
+
 	
 Sub document___sheets___getcellbyposition
 	
