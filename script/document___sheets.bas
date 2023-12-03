@@ -10,6 +10,12 @@ Option Explicit
 
 Sub document___sheets___count_index_name
 	
+	Dim result_string as String
+	
+	
+	'
+	'
+	'
 	Dim document as Object
 	document = ThisComponent
 	
@@ -24,21 +30,21 @@ Sub document___sheets___count_index_name
 	'
 	' Sheet Count
 	'
-	Dim i, cnt as Integer : cnt = sheets.Count - 1
-	Dim s as String
+	Dim cnt as Integer : cnt = sheets.Count - 1
 	
 	
 	'
 	' Index 로 Sheet 가져오기
 	'
-	s = s & document.Title & Chr( 10 ) & Chr( 10 )
+	Dim i as Integer
 	For i = 0 to cnt
-		s = s & i & " : " & sheets( i ).Name & Chr( 10 )
+		result_string = result_string & i & " : " & sheets( i ).Name & Chr( 10 )
 	Next i
 	
 	
 	
-	MsgBox( s )
+	result_string = document.Title & Chr( 10 ) & Chr( 10 ) & result_string
+	MsgBox( result_string )
 
 End Sub
 
