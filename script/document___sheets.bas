@@ -108,7 +108,7 @@ Sub document___sheets___active_row_and_column
 	' Active X
 	'
 	Dim cur_x as Long
-	Dim end_x as Long : end_x = sheet.Columns.Count
+	Dim end_x as Long : end_x = sheet.Columns.Count - 1
 	
 	For cur_x = 0 to end_x
 		If sheet.getCellByPosition( cur_x, 0 ).String = "" Then
@@ -123,7 +123,7 @@ Sub document___sheets___active_row_and_column
 	' Active Y
 	'
 	Dim cur_y as Long
-	Dim end_y as Long : end_y = sheet.Rows.Count
+	Dim end_y as Long : end_y = sheet.Rows.Count - 1
 	
 	For cur_y = 0 to end_y
 		If sheet.getCellByPosition( 0, cur_y ).String = "" Then
