@@ -52,32 +52,6 @@ End Sub
 
 
 
-Sub base___loop___do_while
-
-	Dim result_string as String : result_string = "do_while" & Chr( 10 ) & Chr( 10 )
-	
-	
-	Dim i as Integer
-	Dim j as Integer : j = 10
-	
-	
-	'
-	'
-	'
-	Do While i <= j
-	
-		result_string = result_string & i & " "
-		
-		i = i + 1
-		
-	Loop
-	
-	MsgBox( result_string )
-
-End Sub
-
-
-
 Sub base___loop___while_wend
 
 	Dim result_string as String : result_string = "while_wend" & Chr( 10 ) & Chr( 10 )
@@ -97,34 +71,6 @@ Sub base___loop___while_wend
 		i = i + 1
 		
 	Wend
-	
-	MsgBox( result_string )
-
-End Sub
-
-
-
-Sub base___loop___for_each
-
-	Dim result_string as String : result_string = "for_each" & Chr( 10 ) & Chr( 10 )
-	
-	
-	'
-	' 기본
-	'
-	Dim a( 2 ) as Integer
-	a( 0 ) = 100
-	a( 1 ) = 20
-	a( 2 ) = 3
-	
-	
-	Dim i as Integer
-	For Each i in a
-	
-		result_string = result_string & i & " "
-		
-	Next i
-	
 	
 	MsgBox( result_string )
 
@@ -169,6 +115,132 @@ Sub base___loop___for_each___with_variant
 	
 	
 	result_string = result_string & " Loop : " & i
+	MsgBox( result_string )
+
+End Sub
+
+
+
+Sub base___loop___do_while_loop
+
+	Dim result_string as String : result_string = "do_while_loop" & Chr( 10 ) & Chr( 10 )
+	
+	
+	Dim i as Integer
+	Dim j as Integer : j = 10
+	
+	
+	'
+	' 조건을 만족 하면 돌아간다.
+	'
+	Do While i <= j
+	
+		result_string = result_string & i & " "
+		
+		i = i + 1
+		
+	Loop
+	
+	MsgBox( result_string )
+
+End Sub
+Sub base___loop___do_loop_while
+
+	Dim result_string as String : result_string = "do_loop_while" & Chr( 10 ) & Chr( 10 )
+	
+	
+	Dim i as Integer
+	Dim j as Integer : j = 10
+	
+	
+	'
+	' 조건을 만족 하면 돌아간다.
+	'
+	Do
+	
+		result_string = result_string & i & " "
+		
+		i = i + 1
+		
+	Loop While i <= j
+	
+	MsgBox( result_string )
+
+End Sub
+
+
+
+Sub base___loop___do_until_loop
+
+	Dim result_string as String : result_string = "do_until_loop" & Chr( 10 ) & Chr( 10 )
+	
+	
+	Dim i as Integer
+	Dim j as Integer : j = 10
+	
+	
+	'
+	' 조건을 만족 할 때 까지 돌아간다.
+	'
+	Do Until i > j
+	
+		result_string = result_string & i & " "
+		
+		i = i + 1
+		
+	Loop
+	
+	MsgBox( result_string )
+
+End Sub
+Sub base___loop___do_loop_until
+
+	Dim result_string as String : result_string = "do_loop_until" & Chr( 10 ) & Chr( 10 )
+	
+	
+	Dim i as Integer
+	Dim j as Integer : j = 10
+	
+	
+	'
+	' 조건을 만족 할 때 까지 돌아간다.
+	'
+	Do
+	
+		result_string = result_string & i & " "
+		
+		i = i + 1
+		
+	Loop Until i > j
+	
+	MsgBox( result_string )
+
+End Sub
+
+
+
+Sub base___loop___for_each
+
+	Dim result_string as String : result_string = "for_each" & Chr( 10 ) & Chr( 10 )
+	
+	
+	'
+	' 기본
+	'
+	Dim a( 2 ) as Integer
+	a( 0 ) = 100
+	a( 1 ) = 20
+	a( 2 ) = 3
+	
+	
+	Dim i as Integer
+	For Each i in a
+	
+		result_string = result_string & i & " "
+		
+	Next i
+	
+	
 	MsgBox( result_string )
 
 End Sub
