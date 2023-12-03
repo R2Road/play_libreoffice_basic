@@ -217,6 +217,9 @@ Sub base___loop___do_loop
 		i = i + 1
 		
 		If i = j Then
+			'
+			' Exit Do 는 Do 가 쓰인 모든 구문에서 된다.
+			'
 			Exit Do
 		end If
 		
