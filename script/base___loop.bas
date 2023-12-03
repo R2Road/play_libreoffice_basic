@@ -106,9 +106,37 @@ End Sub
 
 Sub base___loop___for_each
 
+	Dim result_string as String : result_string = "for_each" & Chr( 10 ) & Chr( 10 )
+	
+	
+	'
+	' 기본
+	'
+	Dim a( 2 ) as Integer
+	a( 0 ) = 100
+	a( 1 ) = 20
+	a( 2 ) = 3
+	
+	
+	Dim i as Integer
+	For Each i in a
+	
+		result_string = result_string & i & " "
+		
+	Next i
+	
+	
+	MsgBox( result_string )
+
+End Sub
+
+
+
+Sub base___loop___for_each___with_variant
+
 	' REF : https://wiki.documentfoundation.org/Documentation/BASIC_Guide - For Each 항목에서 가져왔다.
 	
-	Dim result_string as String : result_string = "for_each" & Chr( 10 ) & Chr( 10 )
+	Dim result_string as String : result_string = "for_each ??" & Chr( 10 ) & Chr( 10 )
 	
 	
 	Const a1 = 1
