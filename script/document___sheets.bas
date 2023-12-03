@@ -49,6 +49,40 @@ Sub document___sheets___count_index_name
 End Sub
 
 
+
+Sub document___sheets___row_and_column
+	
+	'
+	' ThisComponent 는 현재 문서를 가리킨다.
+	'
+	Dim document as Object
+	document = ThisComponent
+	
+	
+	'
+	' Get Sheet
+	'
+	Dim sheets as Object
+	sheets = document.Sheets
+	
+	Dim sheet as Object
+	sheet = sheets.getByName( "row_and_column" )
+	
+	
+	'
+	' Long 을 써야 한다.
+	'
+	Dim end_x as Long
+	Dim end_y as Long
+	end_x = sheet.Columns.Count
+	end_y = sheet.Rows.Count
+	
+		
+	MsgBox( "End : " & end_x & " : " & end_y )
+
+End Sub
+
+
 	
 Sub document___sheets___getcellbyposition
 	
