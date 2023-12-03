@@ -219,6 +219,36 @@ End Sub
 
 
 
+Sub base___loop___do_loop
+
+	Dim result_string as String : result_string = "do_loop" & Chr( 10 ) & Chr( 10 )
+	
+	
+	Dim i as Integer
+	Dim j as Integer : j = 10
+	
+	
+	'
+	' while( 1 ) 과 비슷하다.
+	'
+	Do
+	
+		result_string = result_string & i & " "
+		
+		i = i + 1
+		
+		If i = j Then
+			Exit Do
+		end If
+		
+	Loop
+	
+	MsgBox( result_string )
+
+End Sub
+
+
+
 Sub base___loop___for_each
 
 	Dim result_string as String : result_string = "for_each" & Chr( 10 ) & Chr( 10 )
