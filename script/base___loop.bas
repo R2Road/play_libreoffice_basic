@@ -100,49 +100,6 @@ End Sub
 
 
 
-Sub base___loop___for_each___with_variant
-
-	' REF : https://wiki.documentfoundation.org/Documentation/BASIC_Guide - For Each 항목에서 가져왔다.
-	
-	Dim result_string as String : result_string = "for_each ??" & Chr( 10 ) & Chr( 10 )
-	
-	
-	Const a1 = 1
-	Const a2 = 2
-	Const a3 = 3
-	
-	'
-	' Variant
-	'
-	Dim a( a1, a2, a3 )
-	
-	
-	'
-	' 24 Loop
-	'
-	' 0 ~ 1 : 2
-	' 0 ~ 2 : 3
-	' 0 ~ 3 : 4
-	'
-	' 2 * 3 * 4 = 24
-	' 맞냐? 이거?
-	'
-	Dim i as Integer : i = 0
-	Dim e
-	For Each e in a()
-	
-		i = i + 1
-		
-	Next e
-	
-	
-	result_string = result_string & " Loop : " & i
-	MsgBox( result_string )
-
-End Sub
-
-
-
 Sub base___loop___do_while_loop
 
 	Dim result_string as String : result_string = "do_while_loop" & Chr( 10 ) & Chr( 10 )
@@ -293,6 +250,46 @@ Sub base___loop___for_each
 	Next i
 	
 	
+	MsgBox( result_string )
+
+End Sub
+Sub base___loop___for_each___with_variant
+
+	' REF : https://wiki.documentfoundation.org/Documentation/BASIC_Guide - For Each 항목에서 가져왔다.
+	
+	Dim result_string as String : result_string = "for_each ??" & Chr( 10 ) & Chr( 10 )
+	
+	
+	Const a1 = 1
+	Const a2 = 2
+	Const a3 = 3
+	
+	'
+	' Variant
+	'
+	Dim a( a1, a2, a3 )
+	
+	
+	'
+	' 24 Loop
+	'
+	' 0 ~ 1 : 2
+	' 0 ~ 2 : 3
+	' 0 ~ 3 : 4
+	'
+	' 2 * 3 * 4 = 24
+	' 맞냐? 이거?
+	'
+	Dim i as Integer : i = 0
+	Dim e
+	For Each e in a()
+	
+		i = i + 1
+		
+	Next e
+	
+	
+	result_string = result_string & " Loop : " & i
 	MsgBox( result_string )
 
 End Sub
