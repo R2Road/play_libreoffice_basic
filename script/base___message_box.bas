@@ -1,5 +1,7 @@
 ﻿REM  *****  LibreOffice VBA  *****
 
+Option Explicit
+
 '
 ' REF : https://help.libreoffice.org/7.6/ko/text/sbasic/shared/03010102.html
 '
