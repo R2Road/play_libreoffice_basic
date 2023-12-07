@@ -4,7 +4,7 @@ Option Explicit
 
 
 
-Sub base___class_module_test_01___class_module_generate_release
+Sub base___class_module_test_01___generate_release
 
 	Dim c as Object
 	
