@@ -4,13 +4,14 @@ Option Explicit
 
 
 
-Sub base___new___validation
+Sub base___new___empty
 
 	Dim a as Variant
 	
+	
 	If IsEMpty( a ) Then
 	
-		MsgBox( "Empty : a" )
+		MsgBox( "1. Empty : a" )
 		
 	EndIf
 	
@@ -20,7 +21,30 @@ Sub base___new___validation
 	
 	If IsEmpty( a ) = false Then
 	
-		MsgBox( "Not Empty : a" )
+		MsgBox( "2. Not Empty : a" )
+		
+	EndIf
+	
+	
+	Set a = Nothing
+	
+	
+	'
+	' Set a = Nothing 의 결과가 c++ 의 a = nullptr 과는 다른가 보다.
+	'
+	If IsEmpty( a ) Then
+	
+		MsgBox( "3. Empty : a" )
+		
+	EndIf
+	
+	
+	a = Empty
+	
+	
+	If IsEmpty( a ) Then
+	
+		MsgBox( "4. Empty : a" )
 		
 	EndIf
 
