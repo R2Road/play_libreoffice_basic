@@ -1,5 +1,9 @@
 ﻿REM  *****  BASIC  *****
 
+Option Explicit
+
+
+
 Sub base___class_module_test_01___class_module_generate_release
 
 	Dim c as Object
@@ -34,6 +38,41 @@ Sub base___class_module_test_01___class_module_generate_release
 	c.PI = 1000
 	c.PL = 2000
 	Print "Property : Let : " & c.PI & " " & c.PL
+	
+	
+	
+	'
+	' Release : Call - Class_Terminate
+	'
+	Set c = Nothing
+
+
+
+End Sub
+
+
+
+Sub base___class_module_test_01___over_write
+
+	Dim c as Object
+	
+	
+	
+	'
+	' Generate : Call - Class_Initialize
+	'
+	Set c = New base___class_module_01
+	
+	
+	
+	'
+	' Overwrite : 소멸자가 불리냐?
+	'
+	Set c = New base___class_module_01
+	
+	
+	
+	MsgBox( "소멸자 확인" )
 	
 	
 	
