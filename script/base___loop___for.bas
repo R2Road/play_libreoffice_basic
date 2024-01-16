@@ -30,9 +30,9 @@ End Sub
 
 
 
-Sub base___loop___for_step_next
+Sub base___loop___for_next___step
 
-	Dim result_string as String : result_string = "for_step_next" & Chr( 10 ) & Chr( 10 )
+	Dim result_string as String : result_string = "for_next___step" & Chr( 10 ) & Chr( 10 )
 	
 	
 	Dim i as Integer
@@ -52,9 +52,9 @@ End Sub
 
 
 
-Sub base___loop___for_next_exit
+Sub base___loop___for_next___exit_for
 
-	Dim result_string as String : result_string = "for_next_exit" & Chr( 10 ) & Chr( 10 )
+	Dim result_string as String : result_string = "for_next___exit_for" & Chr( 10 ) & Chr( 10 )
 	
 	
 	Dim i as Integer
