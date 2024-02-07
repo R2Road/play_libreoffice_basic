@@ -324,16 +324,44 @@ End Sub
 
 
 
+Sub document___sheets___year_month_date
 
-
-
-
-
-
-
-
-
-
-
-
-
+	Dim result_string as String
+	
+	'
+	'
+	'
+    Dim sheet as Object
+    sheet = ThisComponent.Sheets.getByName( "year_month_date_time" )
+    
+    
+    '
+    '
+    '
+    Dim cell_0_0 as Object
+	cell_0_0 = sheet.getCellByPosition( 0, 0 )
+	
+	
+	'
+	'
+	'
+	result_string = "Cell Value : " & cell_0_0.Value & Chr( 10 )
+	result_string = result_string & "   > Cell의 YMD HMS 값은 하나의 숫자 값으로 변환된다." & Chr( 10 )
+	result_string = result_string & Chr( 10 )
+	result_string = result_string & "Date : " & Date( cell_0_0.Value ) & Chr( 10 )
+	result_string = result_string & Chr( 10 )
+	result_string = result_string & "Year : " & Year( cell_0_0.Value ) & Chr( 10 )
+	result_string = result_string & "Month : " & Month( cell_0_0.Value ) & Chr( 10 )
+	result_string = result_string & "Day : " & Day( cell_0_0.Value ) & Chr( 10 )
+	result_string = result_string & Chr( 10 )
+	result_string = result_string & "Hour : " & Hour( cell_0_0.Value ) & Chr( 10 )
+	result_string = result_string & "Minute : " & Minute( cell_0_0.Value ) & Chr( 10 )
+	result_string = result_string & "Second : " & Second( cell_0_0.Value ) & Chr( 10 )
+	
+	
+	'
+	'
+	'
+	MsgBox( result_string )
+    
+End Sub
