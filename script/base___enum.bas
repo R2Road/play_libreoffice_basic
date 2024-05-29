@@ -18,9 +18,7 @@ Enum eTest
 
 End Enum
 
-
-
-Sub base___enum
+Sub base___enum___declaration_1
 
 	'
 	' Basic
@@ -35,6 +33,39 @@ Sub base___enum
 	' For-Next
 	'
 	For i = eTest.Hana to eTest.Sam
+		Print i
+	Next
+
+End Sub
+
+
+
+'
+' Enum 정의
+'
+Enum eTest2
+
+	Hana = 3
+	Dul = 2
+	Sam = 1
+
+End Enum
+
+Sub base___enum___declaration_2
+
+	'
+	' Basic
+	'
+	MsgBox( _
+						"eTest2.Hana : " &  eTest2.Hana	_
+		& Chr( 10 ) & 	"eTest2.Dul : " &  eTest2.Dul		_
+		& Chr( 10 ) & 	"eTest2.Sam : " &  eTest2.Sam		_
+	)
+	
+	'
+	' For-Next
+	'
+	For i = eTest2.Hana to eTest2.Sam
 		Print i
 	Next
 
